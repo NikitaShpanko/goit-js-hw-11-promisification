@@ -1,14 +1,29 @@
 body {
-  width: max-content;
+  /* width: max-content; */
   margin: 0 auto;
   text-align: center;
 }
 
-p {
+/* p {
   font-size: 24px;
   line-height: 1.5;
   width: 350px;
   margin: 20px auto;
+} */
+
+.console {
+  height: 18em;
+  width: 100%;
+  overflow: scroll;
+}
+
+.console p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.console span:not(:last-child) {
+  margin-right: 6px;
 }
 
 button {
