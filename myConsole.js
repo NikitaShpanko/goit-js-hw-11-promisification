@@ -82,3 +82,7 @@ console.table = function (objTable) {
     }
   }
 };
+
+console.clear = function () {
+  console.textContent = "";
+};
