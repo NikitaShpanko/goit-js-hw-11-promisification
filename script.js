@@ -116,5 +116,3 @@ document
       console.clear();
     }
   );
-
-console.log('"Консоль" находится прямо здесь!', ":-)");
