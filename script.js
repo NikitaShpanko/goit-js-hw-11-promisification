@@ -3,6 +3,7 @@
 Element.prototype.addButtons = function (namePattern, ...callbacks) {
   for (let i = 0; i < callbacks.length; i++) {
     const newButton = document.createElement("button");
+    newButton.type = "button";
     newButton.textContent = namePattern(i);
     newButton.addEventListener("click", callbacks[i]);
     this.append(newButton);
