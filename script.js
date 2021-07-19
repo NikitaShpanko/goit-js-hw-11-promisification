@@ -1,6 +1,6 @@
 "use strict";
 
-const console = document.querySelector("div.console");
+/*const console = document.querySelector("div.console");
 console.log = function (...data) {
   if (!data.length) return;
   const p = document.createElement("p");
@@ -46,7 +46,7 @@ console.table = function (objTable) {
   }
   console.append(tbl);
   console.scrollTop = console.scrollHeight;
-};
+};*/
 
 Element.prototype.addButtons = function (namePattern, ...callbacks) {
   for (let i = 0; i < callbacks.length; i++) {
@@ -81,12 +81,36 @@ document.querySelector("div.buttons").addButtons(
     delay(2000).then(logger); // Resolved after 2000ms
     delay(1000).then(logger); // Resolved after 1000ms
     delay(1500).then(logger); // Resolved after 1500ms
-  }
+  },
 
   /////////////////
   // ЗАДАНИЕ №2: //
   /////////////////
-  //() => {},
+  () => {
+    const users = [
+      { name: "Mango", active: true },
+      { name: "Poly", active: false },
+      { name: "Ajax", active: true },
+      { name: "Lux", active: false },
+    ];
+
+    const toggleUserState = (allUsers, userName) => {
+      return new Promise((resolve, reject) => {
+        const updatedUsers = allUsers.map((user) =>
+          user.name === userName ? { ...user, active: !user.active } : user
+        );
+        resolve(updatedUsers);
+      });
+    };
+
+    const logger = (updatedUsers) => console.table(updatedUsers);
+
+    /*
+     * Должно работать так
+     */
+    toggleUserState(users, "Mango").then(logger);
+    toggleUserState(users, "Lux").then(logger);
+  }
 
   /////////////////
   // ЗАДАНИЕ №3: //
