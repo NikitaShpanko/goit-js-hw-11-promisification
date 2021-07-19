@@ -31,6 +31,11 @@ body {
   border-style: solid;
 }
 
+.console th {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 button {
   padding: 10px 20px;
 }

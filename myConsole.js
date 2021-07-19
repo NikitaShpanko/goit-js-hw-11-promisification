@@ -21,27 +21,55 @@ console.table = function (objTable) {
     return;
   }
   const tbl = document.createElement("table");
-  createRow(["(index)", "Value"], true);
+  const currentRow = new Map();
+  //createRow(["(index)", "Value"], true);
   if (Array.isArray(objTable)) {
     for (let i = 0; i < objTable.length; i++) {
-      createRow([i, objTable[i]]);
+      mapRow(i, objTable[i]);
+      createRow();
+      //createRow([i, objTable[i]]);
     }
   } else {
     for (const [key, value] of Object.entries(objTable)) {
-      createRow([key, value]);
+      mapRow(key, value);
+      createRow();
+      //createRow([key, value]);
     }
   }
 
-  function createRow(arValues, isHeader = false) {
-    const tCell = isHeader ? "th" : "td";
-    const tr = document.createElement("tr");
-    for (const val of arValues) {
-      const cell = document.createElement(tCell);
-      cell.textContent = val;
-      tr.append(cell);
-    }
-    tbl.append(tr);
-  }
+  createRow(true);
+
   console.append(tbl);
   console.scrollTop = console.scrollHeight;
+
+  function mapRow(index, value) {
+    currentRow.set("(index)", index);
+    if (typeof value !== "object") {
+      currentRow.set("Value", value);
+    } else if (Array.isArray(value)) {
+      for (let i = 0; i < value.length; i++) {
+        currentRow.set(i, value[i]);
+      }
+    } else {
+      for (const [key, val] of Object.entries(value)) {
+        currentRow.set(key, val);
+      }
+    }
+  }
+
+  function createRow(isHeader = false) {
+    const tCell = isHeader ? "th" : "td";
+    const tr = document.createElement("tr");
+    for (const [key, value] of currentRow.entries()) {
+      const cell = document.createElement(tCell);
+      cell.textContent = isHeader ? key : value;
+      currentRow.set(key, "");
+      tr.append(cell);
+    }
+    if (isHeader) {
+      tbl.prepend(tr);
+    } else {
+      tbl.append(tr);
+    }
+  }
 };
