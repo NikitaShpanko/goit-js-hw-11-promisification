@@ -36,6 +36,11 @@ body {
   padding-right: 20px;
 }
 
+.warning {
+  color: red;
+  font-weight: bold;
+}
+
 button {
   padding: 10px 20px;
 }

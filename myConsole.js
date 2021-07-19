@@ -1,7 +1,8 @@
 const console = document.querySelector("div.console");
-console.log = function (...data) {
+console.logClass = function (classSelector, ...data) {
   if (!data.length) return;
   const p = document.createElement("p");
+  p.className = classSelector;
   if (data.length > 1) {
     for (const elem of data) {
       const span = document.createElement("span");
@@ -13,6 +14,14 @@ console.log = function (...data) {
   }
   console.append(p);
   console.scrollTop = console.scrollHeight;
+};
+
+console.log = function (...data) {
+  console.logClass("", ...data);
+};
+
+console.warn = function (...data) {
+  console.logClass("warning", ...data);
 };
 
 console.table = function (objTable) {
