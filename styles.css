@@ -20,6 +20,7 @@ body {
 .console p {
   margin: 0;
   line-height: 1.5;
+  min-height: 1.5em;
 }
 
 .console span:not(:last-child) {
