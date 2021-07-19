@@ -2,6 +2,8 @@ body {
   /* width: max-content; */
   margin: 0 auto;
   text-align: center;
+
+  padding-top: 90px;
 }
 
 /* p {
@@ -11,11 +13,20 @@ body {
   margin: 20px auto;
 } */
 
-.console {
+.buttons {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  padding-top: 10px;
+  transform: translateX(-50%);
+  background-color: #fff;
+}
+
+/* .console {
   height: 18em;
   width: 100%;
   overflow: scroll;
-}
+} */
 
 .console p {
   margin: 0;

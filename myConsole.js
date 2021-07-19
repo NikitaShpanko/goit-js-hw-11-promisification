@@ -13,7 +13,8 @@ console.logClass = function (classSelector, ...data) {
     p.textContent = data[0];
   }
   console.append(p);
-  console.scrollTop = console.scrollHeight;
+  //console.scrollTop = console.scrollHeight;
+  window.scrollTo(0, console.scrollHeight);
 };
 
 console.log = function (...data) {
@@ -49,7 +50,8 @@ console.table = function (objTable) {
   createRow(true);
 
   console.append(tbl);
-  console.scrollTop = console.scrollHeight;
+  //console.scrollTop = console.scrollHeight;
+  window.scrollTo(0, console.scrollHeight);
 
   function mapRow(index, value) {
     currentRow.set("(index)", index);
