@@ -2,7 +2,7 @@ const console = document.querySelector("div.console");
 console.logClass = function (classSelector, ...data) {
   if (!data.length) return;
   const p = document.createElement("p");
-  p.className = classSelector;
+  if (classSelector) p.className = classSelector;
   if (data.length > 1) {
     for (const elem of data) {
       const span = document.createElement("span");

@@ -1,17 +1,8 @@
 body {
-  /* width: max-content; */
   margin: 0 auto;
   text-align: center;
-
   padding-top: 90px;
 }
-
-/* p {
-  font-size: 24px;
-  line-height: 1.5;
-  width: 350px;
-  margin: 20px auto;
-} */
 
 .buttons {
   position: fixed;
@@ -21,12 +12,6 @@ body {
   transform: translateX(-50%);
   background-color: #fff;
 }
-
-/* .console {
-  height: 18em;
-  width: 100%;
-  overflow: scroll;
-} */
 
 .console p {
   margin: 0;
